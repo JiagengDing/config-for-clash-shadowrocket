@@ -1,0 +1,11 @@
+# ignore everything
+/*
+/*/
+
+# ... but these:
+!/RULES/
+!/Snippets/
+
+!/.gitignore
+!/LICENSE
+!/README.md
