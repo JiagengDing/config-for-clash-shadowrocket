@@ -457,62 +457,95 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
 
 rule-providers:
+
   apple-proxy:
     type: http
     behavior: classical
     url: "https://cdn.jsdelivr.net/gh/Hackl0us/SS-Rule-Snippet@master/Rulesets/Clash/Basic/Apple-proxy.yaml"
     path: ./ruleset/Apple-proxy.yaml
-    interval: 3600
+    interval: 86400
 
   apple-direct:
     type: http
     behavior: classical
     url: "https://cdn.jsdelivr.net/gh/Hackl0us/SS-Rule-Snippet@master/Rulesets/Clash/Basic/Apple-direct.yaml"
     path: ./ruleset/Apple-direct.yaml
-    interval: 3600
-
-  cn:
-    type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/Hackl0us/SS-Rule-Snippet@master/Rulesets/Clash/Basic/CN.yaml"
-    path: ./ruleset/CN.yaml
-    interval: 3600
+    interval: 86400
 
   ad-keyword:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/Hackl0us/SS-Rule-Snippet@master/Rulesets/Clash/Basic/common-ad-keyword.yaml"
-    path: ./ruleset/common-ad-keyword.yaml
-    interval: 3600
+    url: "https://cdn.jsdelivr.net/gh/jiagengding/config-for-clash-shadowrocket@master/Rulesets/Clash/ad-keyword-common-ad.yaml"
+    path: ./ruleset/ad-keyword.yaml
+    interval: 86400
 
   foreign:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/Hackl0us/SS-Rule-Snippet@master/Rulesets/Clash/Basic/foreign.yaml"
+    url: "https://cdn.jsdelivr.net/gh/jiagengding/config-for-clash-shadowrocket@master/Rulesets/Clash/foreign.yaml"
     path: ./ruleset/foreign.yaml
-    interval: 3600
+    interval: 86400
 
-  telegram:
+  AntiAD:
+    type: http
+    behavior: domain
+    url: https://anti-ad.net/clash.yaml
+    path: ./ruleset/AntiAD.yaml
+    interval: 86400
+
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+    path: ./ruleset/cncidr.yaml
+    interval: 86400
+
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    path: ./ruleset/lancidr.yaml
+    interval: 86400
+
+  GitHub:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/Hackl0us/SS-Rule-Snippet@master/Rulesets/Clash/App/social/Telegram.yaml"
-    path: ./ruleset/Telegram.yaml
-    interval: 3600
+    path: ./ruleset/GitHub.yaml
+    # url: https://raw.githubusercontent.com/Semporia/ClashX-Pro/master/Filter/GitHub.yaml
+    url: "https://cdn.jsdelivr.net/gh/jiagengding/config-for-clash-shadowrocket@master/Rulesets/Clash/Github.yaml"
+    interval: 86400
 
-  lan:
+  Speedtest:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/Hackl0us/SS-Rule-Snippet@master/Rulesets/Clash/Basic/LAN.yaml"
-    path: ./ruleset/LAN.yaml
-    interval: 3600
+    path: ./ruleset/Speedtest.yaml
+    # url: https://raw.githubusercontent.com/Semporia/ClashX-Pro/master/Filter/Speedtest.yaml
+    url: "https://cdn.jsdelivr.net/gh/jiagengding/config-for-clash-shadowrocket@master/Rulesets/Clash/Speedtest.yaml"
+    interval: 86400
+
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    path: ./ruleset/telegramcidr.yaml
+    interval: 86400
+
 
 rules:
-  - RULE-SET,apple-proxy,Proxy
-  - RULE-SET,apple-direct,DIRECT
-  - RULE-SET,cn,DIRECT
+
+# Ruleset
+  - RULE-SET,AntiAD,REJECT
   - RULE-SET,ad-keyword,REJECT
-  - RULE-SET,foreign,Proxy
-  - RULE-SET,telegram,Proxy
+  - RULE-SET,apple-proxy,PROXY
+  - RULE-SET,apple-direct,DIRECT
+  - RULE-SET,cncidr,DIRECT
+  - RULE-SET,foreign,PROXY
+  - RULE-SET,lancidr,DIRECT
+  - RULE-SET,GitHub,Github
+  - RULE-SET,Speedtest,Speedtest
+  - RULE-SET,telegramcidr,PROXY
+
+
   - RULE-SET,lan,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,Proxy
