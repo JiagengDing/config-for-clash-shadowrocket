@@ -523,7 +523,7 @@ rule-providers:
     behavior: classical
     path: ./ruleset/GitHub.yaml
     # url: https://raw.githubusercontent.com/Semporia/ClashX-Pro/master/Filter/GitHub.yaml
-    url: "https://cdn.jsdelivr.net/gh/jiagengding/config-for-clash-shadowrocket@master/Rulesets/Clash/Github.yaml"
+    url: "https://cdn.jsdelivr.net/gh/jiagengding/config-for-clash-shadowrocket@master/Rulesets/Clash/GitHub.yaml"
     interval: 86400
 
   Speedtest:
@@ -557,6 +557,6 @@ rules:
   - RULE-SET,telegramcidr,PROXY
 
 
-  - RULE-SET,lan,DIRECT
+  # - RULE-SET,lan,DIRECT
   - GEOIP,CN,DIRECT
-  - MATCH,Proxy
+  - MATCH,PROXY
