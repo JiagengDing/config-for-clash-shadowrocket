@@ -1,5 +1,6 @@
 payload:
   - DOMAIN-KEYWORD,sina
+  - DOMAIN-KEYWORD,weibo
   - DOMAIN-KEYWORD,amazon
   - DOMAIN-KEYWORD,google
   - DOMAIN-KEYWORD,gmail
