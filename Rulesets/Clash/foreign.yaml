@@ -1,6 +1,7 @@
 payload:
   - DOMAIN-SUFFIX,sina.cn
   - DOMAIN-SUFFIX,weibo.cn
+  - PROCESS-NAME,com.sina.weibo
   - DOMAIN-KEYWORD,amazon
   - DOMAIN-KEYWORD,google
   - DOMAIN-KEYWORD,gmail
